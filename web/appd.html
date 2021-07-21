@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>APP 下载</title>
+    <style>
+        html,body{
+            width:100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .content {
+            height: 100%;
+            background: url('//www.fv-shop.top/download-bg.png') no-repeat;
+            background-size: 100% 100%;
+        }
+        .download {
+            padding-top: 7rem;
+        }
+        .download h1 {
+            color: #F8F8F8;
+            font-size: 2.2rem;
+            font-family: serif;
+            margin: 0 auto;
+            text-align: center;
+            font-weight: 100;
+        }
+        .download-btn {
+            display: block;
+            background-color: #008DFF;
+            width: 8rem;
+            height: 2.5rem;
+            border-radius: 0.2rem;
+            color: #fff;
+            text-align: center;
+            line-height: 2.5rem;
+            font-size: 1rem;
+            box-shadow: 0 0 20px 0 rgba(255,255,255,.6);
+        }
+        .download-btn {
+            margin: 1.3rem auto;
+            text-decoration: none;
+        }
+        .mask {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(0,0,0,0.8);
+            opacity: 0.8;
+            filter: alpha(opacity=80);
+            text-align: center;
+        }
+        .mask img {
+            max-width: 565px;
+            width: 90%;
+            margin-top: 10%;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <div class="download">
+        <h1 class="">云防护APP全新上线</h1>
+        <a href="itms-services://?action=download-manifest&url=https://m-openapi-v2.anyu.qianxin.com/document/Ay_4021_release.plist" class="download-btn android-dwn">
+            <span>iOS版下载</span>
+        </a>
+        <a href="https://m-openapi-v2.anyu.qianxin.com/document/Ay_4021_release.apk" class="download-btn android-dwn">
+            <span>Android版下载</span>
+        </a>
+    </div>
+</div>
+<script>
+	(function(){
+		function init() {
+			var isWeixin = is_weixin();
+			if (isWeixin) {
+				var img = document.createElement ("img");
+				img.src='//beta.anyu.qianxin.com/images/login/download-mask.png';
+				var weixinTip = document.createElement ("div");
+				weixinTip.className = 'mask';
+				weixinTip.appendChild(img);
+				document.body.appendChild(weixinTip);
+			}
+		}
+
+		function is_weixin() {
+			var ua = navigator.userAgent.toLowerCase();
+			var reg = ua.match(/MicroMessenger/i)
+			if (reg && reg.length>0) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		init();
+	})()
+</script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+这个目录下面不能有index.html index.htm index.php 这种默认首页，不然点击dir/直接显示默认首页内容
